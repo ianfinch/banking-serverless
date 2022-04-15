@@ -1,4 +1,4 @@
-import mongoosePromise from "../../lib/mongodb.js";
+import mongoosePromise from "../../mongodb.js";
 
 export default function handler(request, response) {
   mongoosePromise
