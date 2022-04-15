@@ -5,7 +5,7 @@ const models = require("./models.js");
 
 dotenv.config();
 
-const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@banking.ryfuw.mongodb.net/banking?retryWrites=true&w=majority`
+const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`
 
 /**
  * Allow Control-C interrupt
