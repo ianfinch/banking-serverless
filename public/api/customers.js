@@ -7,6 +7,7 @@ const models = require("../../lib/models.js");
 const simplifyResult = data => {
 
     return data.map(entry => {
+        entry.foo = 100;
         delete entry.__v;
         return entry;
     });
