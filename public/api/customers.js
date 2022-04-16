@@ -15,25 +15,29 @@ const simplifyResult = data => {
 /**
  * Submit the response back to the API call
  */
-const returnResult = data => {
+const returnResult = (request, response) => {
 
-    response.status(200).json({
-        body: { status: 200, data }
-    });
+    return data => {
 
-    return data;
+        response.status(200).json({
+            body: { status: 200, data }
+        });
+
+        return data;
+    };
 };
 
 /**
  * The function handler itself
  */
 export default function handler(request, response) {
+
   mongoosePromise
     .then(mongoose => {
 
         const Model = models.person.model;
         Model.find()
             .then(simplifyResult)
-            .then(returnResult);
+            .then(returnResult(request, response));
     });
 }
