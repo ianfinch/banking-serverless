@@ -1,4 +1,4 @@
-import mongoosePromise from "../../lib/mongodb.js";
+const mongoosePromise = require("../../lib/mongodb.js");
 const models = require("../../lib/models.js");
 
 /**
