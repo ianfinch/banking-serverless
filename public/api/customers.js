@@ -21,7 +21,11 @@ const returnResult = (request, response) => {
     return data => {
 
         response.status(200).json({
-            body: { status: 200, data }
+            body: {
+                status: 200,
+                request,
+                data
+            }
         });
 
         return data;
