@@ -28,7 +28,7 @@ const returnResult = (request, response) => {
                     method: request.method,
                     headers: request.headers,
                     cookies: request.cookies,
-                    query: requst.query,
+                    query: request.query,
                     body: request.body
                 },
                 data
