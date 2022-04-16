@@ -24,7 +24,13 @@ const returnResult = (request, response) => {
         response.status(200).json({
             body: {
                 status: 200,
-                request: util.inspect(request),
+                request: {
+                    method: request.method,
+                    headers: request.headers,
+                    cookies: request.cookies,
+                    query: requst.query,
+                    body: request.body
+                },
                 data
             }
         });
