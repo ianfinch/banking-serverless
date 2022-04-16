@@ -1,10 +1,16 @@
 import mongoosePromise from "../../lib/mongodb.js";
+const models = require("../../lib/models.js");
 
 export default function handler(request, response) {
   mongoosePromise
     .then(mongoose => {
-        response.status(200).json({
-            body: {a: "hello", b: "world", mongoose: mongoose.version}
-        });
+
+        const Model = models.person.model;
+        Model.find()
+            .then(data => {
+                response.status(200).json({
+                    body: { mongoose: mongoose.version, data }
+                });
+            });
     });
 }
