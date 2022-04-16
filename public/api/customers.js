@@ -1,5 +1,6 @@
 const mongoosePromise = require("../../lib/mongodb.js");
 const models = require("../../lib/models.js");
+const util = require("util");
 
 /**
  * Remove the __v value from the results
@@ -23,7 +24,7 @@ const returnResult = (request, response) => {
         response.status(200).json({
             body: {
                 status: 200,
-                request,
+                request: util.inspect(request),
                 data
             }
         });
