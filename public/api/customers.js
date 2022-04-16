@@ -9,7 +9,7 @@ const simplifyResult = data => {
     return data.map(entry => {
         delete entry.__v;
         return entry;
-    }):
+    });
 };
 
 /**
