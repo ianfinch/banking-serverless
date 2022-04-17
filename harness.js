@@ -26,5 +26,5 @@ const response = {
  */
 import("./public/api/customers.js")
     .then(handler => {
-        handler.default(null, response);
+        handler.default({}, response);
     });
