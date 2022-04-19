@@ -16,6 +16,8 @@ process.on("SIGINT", () => {
  * A response we can pass in to the handler
  */
 const response = {
+    send: d => { console.log("Send:", d); return response; },
+    setHeader: h => { console.log("Set header:", h); return response; },
     status: s => { console.log("Status:", s); return response; },
     json: j => { console.log("Json:", JSON.stringify(j, null, 4)); return response; }
 };
@@ -26,5 +28,5 @@ const response = {
  */
 import("./public/api/customers.js")
     .then(handler => {
-        handler.default({}, response);
+        handler.default({ method: "GET" }, response);
     });
