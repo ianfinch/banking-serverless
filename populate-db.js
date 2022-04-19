@@ -50,9 +50,9 @@ const populateProducts = () => {
     const Model = models.product.model;
 
     return Model.collection.drop()
-            .then(() => saveProduct(Model, "Pet Insurance", "Pet insurance"))
-            .then(() => saveProduct(Model, "Car Insurance", "Car insurance"))
-            .then(() => saveProduct(Model, "Home Insurance", "Home insurance"))
+            .then(() => saveProduct(Model, "Pet Insurance", "Round the clock care for your cat or dog - cover they deserve"))
+            .then(() => saveProduct(Model, "Car Insurance", "Great value car insurance - simply the best"))
+            .then(() => saveProduct(Model, "Home Insurance", "Great value, flexible five star rated home insurance"))
             .then(() => saveProduct(Model, "Home and Pet", "Insurance covering both your home and your pets"))
             .then(() => saveProduct(Model, "Home and Car", "Insurance covering both your home and your cars"))
             .then(() => saveProduct(Model, "Complete Cover", "Insurance covering your home, your cars and your pets"));
