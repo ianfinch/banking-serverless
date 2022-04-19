@@ -1,4 +1,4 @@
-const utils = require("../../../lib/handler-utils.js");
+const utils = require("../../../../lib/handler-utils.js");
 
 export default function(request, response) {
 
