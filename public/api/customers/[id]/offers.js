@@ -1,5 +1,5 @@
 const utils = require("../../../../lib/handler-utils.js");
-const models = require("../../lib/models.js");
+const models = require("../../../../lib/models.js");
 
 export default function(request, response) {
 
