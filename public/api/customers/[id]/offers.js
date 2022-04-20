@@ -18,8 +18,6 @@ const filterProducts = ([ customer, products ]) => {
             return true;
         }
 
-        const
-
         return false;
     });
 };
