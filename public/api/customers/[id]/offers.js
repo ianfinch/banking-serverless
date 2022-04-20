@@ -4,13 +4,21 @@ const models = require("../../../../lib/models.js");
 /**
  * Filter the offers based on products a customer has already purchased
  */
-const filterByPrerequisites = ([ customer, products ]) => {
+const filterProducts = ([ customer, products ]) => {
 
     return products.filter(product => {
 
+        // Don't include a product the customer has already bought
+        if (customer.purchased.includes(product.name)) {
+            return false;
+        }
+
+        // If there are no prerequisites, just include the product
         if (!product.prerequisites || product.prerequisites.length === 0) {
             return true;
         }
+
+        const
 
         return false;
     });
@@ -27,6 +35,6 @@ export default function(request, response) {
     Promise.all([
         customerModel.findById(request.query.id),
         productModel.find()
-    ]).then(filterByPrerequisites)
+    ]).then(filterProducts)
       .then(utils.returnResult(200, request, response));
 };
