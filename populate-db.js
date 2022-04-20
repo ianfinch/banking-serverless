@@ -36,9 +36,15 @@ const populateCollection = (modelName, numberOfItems) => {
 /**
  * Save a product to the database
  */
-const saveProduct = (Model, name, description) => {
+const saveProduct = (Model, name, description, prerequisites) => {
 
-    const doc = new Model({ name, description });
+    let doc;
+    if (prerequisites) {
+        doc = new Model({ name, description, prerequisites });
+    } else {
+        doc = new Model({ name, description });
+    }
+
     return doc.save();
 };
 
@@ -53,9 +59,9 @@ const populateProducts = () => {
             .then(() => saveProduct(Model, "Pet Insurance", "Round the clock care for your cat or dog - cover they deserve"))
             .then(() => saveProduct(Model, "Car Insurance", "Great value car insurance - simply the best"))
             .then(() => saveProduct(Model, "Home Insurance", "Great value, flexible five star rated home insurance"))
-            .then(() => saveProduct(Model, "Home and Pet", "Insurance covering both your home and your pets"))
-            .then(() => saveProduct(Model, "Home and Car", "Insurance covering both your home and your cars"))
-            .then(() => saveProduct(Model, "Complete Cover", "Insurance covering your home, your cars and your pets"));
+            .then(() => saveProduct(Model, "Home and Pet", "Insurance covering both your home and your pets", [ "Pet Insurance", "Home Insurance" ]))
+            .then(() => saveProduct(Model, "Home and Car", "Insurance covering both your home and your cars", [ "Home Insurance", "Car Insurance" ]))
+            .then(() => saveProduct(Model, "Complete Cover", "Insurance covering your home, your cars and your pets", [ "Home and Pet", "Home and Car" ]));
 };
 
 /**
