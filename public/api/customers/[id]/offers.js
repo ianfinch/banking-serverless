@@ -18,6 +18,12 @@ const filterProducts = ([ customer, products ]) => {
             return true;
         }
 
+        // Check whether the customer has met any prerequisites
+        const metPrerequisites = product.prerequisites.filter(prereq => customer.purchased.includes(prereq));
+        if (metPrerequisites.length > 0) {
+            return true;
+        }
+
         return false;
     });
 };
