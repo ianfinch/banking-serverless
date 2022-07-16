@@ -6,6 +6,8 @@ const models = require("../../../../lib/models.js");
  */
 const filterProducts = ([ customer, products ]) => {
 
+    // First pass is to filter out products the customer already has, or
+    // products which the customer is not eligible for
     return products.filter(product => {
 
         // Don't include a product the customer has already bought
